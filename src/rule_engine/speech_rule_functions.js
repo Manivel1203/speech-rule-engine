@@ -57,6 +57,11 @@ sre.SpeechRuleFunctions.Store_.prototype.add = function(name, func) {
 };
 
 
+sre.SpeechRuleFunctions.Store_.prototype.addXpath = function(name, func) {
+  this.store_[name] = func;
+};
+
+
 /**
  * Adds the functions of another store.
  * @param {sre.SpeechRuleFunctions.Store_} store A speech rule store.

@@ -38,6 +38,7 @@ goog.require('sre.DynamicCstr');
 goog.require('sre.Engine');
 goog.require('sre.MathMap');
 goog.require('sre.MathStore');
+goog.require('sre.RuleEngineUtil');
 goog.require('sre.SpeechRule');
 goog.require('sre.SpeechRuleStores');
 goog.require('sre.XpathUtil');
@@ -540,6 +541,7 @@ sre.SpeechRuleEngine.prototype.combineStores_ = function(ruleSets) {
     combined.customQueries.addStore(store.customQueries);
     combined.customStrings.addStore(store.customStrings);
   }
+  sre.RuleEngineUtil.addCustomQueries(combined);
   combined.setSpeechRules(combined.trie.collectRules());
   this.combinedStores_[this.combinedStoreName_(Object.keys(ruleSets))] =
       combined;
